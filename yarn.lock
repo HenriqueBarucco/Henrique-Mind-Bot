@@ -2065,7 +2065,7 @@ eastasianwidth@^0.2.0:
 
 easy-whatsapp-lib@HenriqueBarucco/Easy-WhatsApp-Lib:
   version "0.0.1"
-  resolved "https://codeload.github.com/HenriqueBarucco/Easy-WhatsApp-Lib/tar.gz/283441423ebac48ce8a80ba2928a07093ee01991"
+  resolved "https://codeload.github.com/HenriqueBarucco/Easy-WhatsApp-Lib/tar.gz/340eb1fe82c1b7cbd7360119c95df4776fe675c8"
   dependencies:
     "@types/socket.io-client" "^3.0.0"
     dotenv "^16.4.4"
