@@ -20,6 +20,9 @@ export class MovieService implements ICommand {
             case 'list':
                 await this.listMovies(user);
                 break;
+            case 'remove':
+                await this.removeMovie(text, user);
+                break;
             default:
                 console.log(`Movie Action ${action} not found`);
                 break;
@@ -71,5 +74,32 @@ export class MovieService implements ICommand {
         });
 
         this.messageService.sendMessage(user.phone, message);
+    }
+
+    private async removeMovie(title: string, user: User) {
+        const movie = await this.prisma.movie.findFirst({
+            where: {
+                title,
+            },
+        });
+
+        if (!movie) {
+            await this.messageService.sendMessage(
+                user.phone,
+                'Esse filme não está na sua lista! 😅',
+            );
+            return;
+        }
+
+        await this.prisma.movie.delete({
+            where: {
+                id: movie.id,
+            },
+        });
+
+        await this.messageService.sendMessage(
+            user.phone,
+            'Removi o filme!! 👍',
+        );
     }
 }
