@@ -36,4 +36,9 @@ export class EasyWhatsAppService implements OnModuleInit {
             command.message,
         );
     }
+
+    async sendMessage(phone: string, message: string) {
+        console.log(`Sending message to ${phone}: ${message}`);
+        this.connection.sendMessage(phone, message);
+    }
 }
