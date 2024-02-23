@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '@prisma/client';
 import { Message } from 'easy-whatsapp-lib/lib/cjs/types/message';
-import { MessageService } from 'src/message/message.service';
 import { MovieService } from 'src/movie/movie.service';
 import { UserService } from 'src/user/user.service';
 
@@ -10,7 +8,6 @@ export class CommandService {
     constructor(
         private readonly userService: UserService,
         private readonly movieService: MovieService,
-        private readonly messageService: MessageService,
     ) {}
 
     async handleCommand(command: string, action: string, message: Message) {
@@ -20,7 +17,7 @@ export class CommandService {
         );
         switch (command) {
             case 'movie':
-                this.handleMovieCommand(action, message.message, user);
+                this.movieService.handleCommand(action, message.message, user);
                 break;
             default:
                 console.log(`Command ${command} not found`);
@@ -28,7 +25,7 @@ export class CommandService {
         }
     }
 
-    private async handleMovieCommand(
+    /*     private async handleMovieCommand(
         action: string,
         title: string,
         user: User,
@@ -53,5 +50,5 @@ export class CommandService {
                 console.log(`Movie Action ${action} not found`);
                 break;
         }
-    }
+    } */
 }

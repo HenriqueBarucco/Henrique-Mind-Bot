@@ -16,6 +16,7 @@ export class EasyWhatsAppService implements OnModuleInit {
     }
 
     private handleReceivedMessage(message: Message): void {
+        console.log('Received message:', message);
         if (message.message[0] !== '/') return;
 
         const command = {
