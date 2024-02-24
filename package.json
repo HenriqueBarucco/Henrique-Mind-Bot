@@ -25,6 +25,7 @@
         "@nestjs/platform-express": "^10.0.0",
         "@prisma/client": "^5.9.1",
         "easy-whatsapp-lib": "HenriqueBarucco/Easy-WhatsApp-Lib",
+        "openai": "^4.28.0",
         "reflect-metadata": "^0.2.0",
         "rxjs": "^7.8.1"
     },

@@ -4,6 +4,7 @@ import { CommandModule } from './command/command.module';
 import { MovieModule } from './movie/movie.module';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './message/message.module';
+import { AIModule } from './ai/ai.module';
 
 @Module({
     imports: [
@@ -12,6 +13,7 @@ import { MessageModule } from './message/message.module';
         EasyWhatsAppModule,
         CommandModule,
         MessageModule,
+        AIModule,
     ],
 })
 export class AppModule {}
